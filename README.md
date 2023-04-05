@@ -1,0 +1,1 @@
+# gcp_architecture_casestudy
