@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1', '.']
+  args: ['build', '--no-cache', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1']
 - name: 'gcr.io/cloud-builders/kubectl'

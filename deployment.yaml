@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: gcr.io/key-tokenizer-382610/quickstart-image
+        image: us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1
         ports:
         - containerPort: 8080
