@@ -1,9 +1,10 @@
 FROM python:3.7-slim-buster
 
-WORKDIR /gcp_architecture_casestudy
+WORKDIR /app
+ADD . /app
 
 COPY requirements.txt requirements
 
-ADD . .
+ENV PORT 8080
 
 CMD [ "python", "patient.py" ]
