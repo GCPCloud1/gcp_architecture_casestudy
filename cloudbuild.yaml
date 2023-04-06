@@ -4,6 +4,16 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1']
 - name: 'gcr.io/cloud-builders/kubectl'
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
+  args:
+  - 'apply'
+  - '-f'
+  - 'deployment.yaml'
+- name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'deployment.yaml']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'service.yaml']
+
