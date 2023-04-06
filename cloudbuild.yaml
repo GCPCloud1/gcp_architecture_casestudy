@@ -3,17 +3,17 @@ steps:
   args: ['build', '--no-cache', '-t' , 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1']
-- name: 'gcr.io/cloud-builders/kubectl'
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
+- name: "gcr.io/cloud-builders/gke-deploy"
+- name: "gcr.io/cloud-builders/gke-deploy"
   args:
-  - 'apply'
-  - '-f'
-  - 'deployment.yaml'
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'deployment.yaml']
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'service.yaml']
-
+  - run
+  - --filename=deployment.yaml
+  - --image=us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1
+  - --location=us-central1-c
+  - --cluster=cluster-1
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=service.yaml
+  - --location=us-central1-c
+  - --cluster=cluster-1
