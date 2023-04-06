@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: gcr.io/gcp-demo-1-377213/patient.py:$COMMIT_SHA
+        image: gcr.io/key-tokenizer-382610/quickstart-image
         ports:
         - containerPort: 8080

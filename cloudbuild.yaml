@@ -1,8 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/gcp-demo-1-377213/patient.py:$COMMIT_SHA', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/gcp-demo-1-377213/patient.py:$COMMIT_SHA']
+  args: ['push', 'us-central1-docker.pkg.dev/key-tokenizer-382610/my-repository/patient-image:tag1']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'deployment.yaml']
 - name: 'gcr.io/cloud-builders/kubectl'
