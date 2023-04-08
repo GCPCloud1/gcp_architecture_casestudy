@@ -12,7 +12,7 @@ steps:
     args:
       - 'apply'
       - '-f'
-      - 'kubernetes/deployment.yaml'
+      - 'deployment.yaml'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cloudbuild	'
