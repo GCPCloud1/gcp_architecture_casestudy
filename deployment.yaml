@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: gcr.io/gcp-demo-1-377213/patient-image:latest
+        image: gcr.io/gcp-demo-1-377213/medical-image:latest
         ports:
         - containerPort: 8080
